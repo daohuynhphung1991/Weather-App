@@ -18,6 +18,10 @@
   },
   "homepage": "https://github.com/daohuynhphung1991/Weather-App#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "unirest": "^0.6.0"
+  },
+  "devDependencies": {
+    "path": "^0.12.7"
   }
 }
