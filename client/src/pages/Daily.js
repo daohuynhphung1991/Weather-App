@@ -18,7 +18,9 @@ class Daily extends Component {
                                     // Return the element. Also pass key
                                     const unixTimestamp = daily.time;
                                     return (
-                                        <DetailDaily key={i} ikey={i} daily={daily} timezone={this.props.timezone} unixTimestamp={unixTimestamp}/>
+                                        <DetailDaily key={i} ikey={i} daily={daily} timezone={this.props.timezone} unixTimestamp={unixTimestamp}
+                                                     lat={this.props.lat} lon={this.props.lon}
+                                        />
                                     );
                                 })}
                             </div>

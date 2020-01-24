@@ -17,8 +17,6 @@ class DetailDaily extends Component {
                 data: []
             },
             timezone: '',
-            lat: 10.75,
-            lon: 106.6667,
             isLoaded: false,
         };
 
@@ -35,8 +33,8 @@ class DetailDaily extends Component {
     // Retrieves the list of items from the Express app
     getList = param => {
         const params = {
-            'lat' : this.state.lat,
-            'lon': this.state.lon,
+            'lat' : this.props.lat,
+            'lon': this.props.lon,
             'timezone': param ? param : ''
         };
         axios.get('/weather',{

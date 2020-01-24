@@ -6,6 +6,8 @@ import {Button, Form, FormControl} from "react-bootstrap";
 
 const axios = require('axios');
 
+const WAIT_INTERVAL = 100000;
+
 class List extends Component {
     // Initialize the state
     constructor(props) {
@@ -28,9 +30,15 @@ class List extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    componentWillMount() {
+        clearInterval(this.timerID);
+    }
+
     // Fetch the list on first mount
     componentDidMount() {
         this.getList();
+
+        this.timerID = setInterval(() => this.getList(), WAIT_INTERVAL);
     }
 
     handleElement(e) {
@@ -92,7 +100,7 @@ class List extends Component {
                             max={this.state.daily.data[0].temperatureMax.toFixed()}
                             isLoaded={this.state.isLoaded}
                     />
-                    <Daily daily={this.state.daily}/>
+                    <Daily daily={this.state.daily} lat={this.state.lat} lon={this.state.lon} />
                 </div>
             ) : (
                 ""
