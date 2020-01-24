@@ -26,12 +26,12 @@ class HourlyDetail extends Component {
                                         <b>{hourly.summary}</b>
                                     </div>
                                     <div className={'p-2'}>
-                                        {i === 0 &&
+                                        {i === 0 && !this.props.formDaily &&
                                         <div>
                                             <b>Now</b>
                                         </div>
                                         }
-                                        {i !== 0 &&
+                                        {(i !== 0 || this.props.formDaily) &&
                                         <div>
                                             <b>
                                                 <Moment unix tz={this.props.timezone} format={'h A'}>
